@@ -143,6 +143,39 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             textField.text = "BOTTOM"
         }
     }
+    
+    //MARK: TextFieldDelegate Methods
+       
+       func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           dismissKeyboard(textField)
+           return true
+       }
+       
+       func textFieldDidBeginEditing(_ textField: UITextField) {
+           if textField.text! == "TOP" || textField.text! == "BOTTOM" {
+               textField.text = ""
+           }
+       }
+       
+       func textFieldDidEndEditing(_ textField: UITextField) {
+           if textField.text!.isEmpty {
+               if textField.isEqual(topTextField){
+                   textField.text = "TOP"
+               } else {
+                   textField.text = "BOTTOM"
+               }
+           }
+       }
+       
+       func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+           
+           let currentText = textField.text! as NSString
+           let capitalizedText = currentText.replacingCharacters(in: range, with: string.uppercased())
+           
+           textField.text = capitalizedText
+           
+           return false
+       }
 
 
 }
