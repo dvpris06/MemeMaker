@@ -9,7 +9,7 @@ import UIKit
 
 class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    //MARK: Outlets
+    //MARK: Outlets and properties
     
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -19,9 +19,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     
+    var memedImage: UIImage!
+    
+    //MARK: UIView lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         subscribeToKeyboardNotifications()
     }
     
-    //MARK: imagePicker Methods
+    //MARK: Actions
     
     @IBAction func pickAnImage(_ sender: UIBarButtonItem) {
     
@@ -56,6 +60,23 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        
+        memedImage = generateMemedImage()
+        
+        if let image = memeImageView.image {
+            let meme = Meme(topMemeText: topTextField.text!,
+                            bottomMemeText: bottomTextField.text!,
+                            originalImage: image,
+                            memedImage: memedImage)
+            MemeData.allMemes.append(meme)
+            print(MemeData.allMemes.count)
+        }
+    }
+    
+    
+    //MARK: imagePicker Methods
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         memeImageView.image = (info[UIImagePickerController.InfoKey.originalImage] as! UIImage)
         memeImageView.contentMode = .scaleAspectFill
@@ -144,6 +165,24 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    func generateMemedImage() -> UIImage {
+        navBar.isHidden = true
+        toolBar.isHidden = true
+        
+        // Render view to an image, using a context
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+          
+        navBar.isHidden = false
+        toolBar.isHidden = false
+    
+        return memedImage
+      }
+      
     //MARK: TextFieldDelegate Methods
        
        func textFieldShouldReturn(_ textField: UITextField) -> Bool {

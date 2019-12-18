@@ -20,7 +20,11 @@
                                 <items>
                                     <navigationItem title="MemeMaker" id="CWd-NP-KjF">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="BaC-ka-Qpa" userLabel="Cancel"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="Aee-vr-G2Y"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="Aee-vr-G2Y">
+                                            <connections>
+                                                <action selector="save:" destination="BYZ-38-t0r" id="tbw-C5-Q7i"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -87,6 +91,7 @@
                         <outlet property="memeImageView" destination="wDY-s6-CPh" id="Jxs-Oy-ooC"/>
                         <outlet property="navBar" destination="lji-Jr-sFd" id="RfI-Pt-rmM"/>
                         <outlet property="saveButton" destination="Aee-vr-G2Y" id="nuh-z2-UiX"/>
+                        <outlet property="toolBar" destination="eDY-IN-MQt" id="mqr-uG-bcy"/>
                         <outlet property="topTextField" destination="fNe-iq-dQl" id="NxK-T3-VSt"/>
                     </connections>
                 </viewController>
