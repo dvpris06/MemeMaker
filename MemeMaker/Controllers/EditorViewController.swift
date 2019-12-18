@@ -27,6 +27,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        setCommonFontStyle(topTextField)
+        setCommonFontStyle(bottomTextField)
     }
     
     //MARK: imagePicker Methods
@@ -49,13 +52,33 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        memeImageView.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        memeImageView.image = (info[UIImagePickerController.InfoKey.originalImage] as! UIImage)
         memeImageView.contentMode = .scaleAspectFill
         dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Utility Methods
+    
+    func setCommonFontStyle(_ textField: UITextField) {
+        let memeTextAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.strokeColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
+            NSAttributedString.Key.strokeWidth: -3.0
+        ]
+        
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.adjustsFontSizeToFitWidth = true
+        
+        if textField.isEqual(topTextField) {
+            textField.text = "TOP"
+        } else {
+            textField.text = "BOTTOM"
+        }
     }
 
 
