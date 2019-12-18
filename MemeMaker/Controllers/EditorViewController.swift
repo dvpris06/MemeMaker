@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     //MARK: Outlets
     
@@ -28,8 +28,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+    
         setCommonFontStyle(topTextField)
         setCommonFontStyle(bottomTextField)
+        
+        subscribeToKeyboardNotifications()
     }
     
     //MARK: imagePicker Methods
@@ -59,6 +64,64 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Keyboard Methods
+    
+    func subscribeToKeyboardNotifications() {
+        
+        // watch for the keyboard to show
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(EditorViewController.keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        // watch for the keyboard to hide
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(EditorViewController.keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        
+        // no longer need to watch for keyboard to show
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        
+        // no longer need to watch for keyboard to hide
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = -getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification:Notification) {
+        
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func dismissKeyboard(_ textField: UITextField) {
+        
+        // dismiss the keyboard
+        textField.endEditing(true)
+        textField.resignFirstResponder()
     }
     
     //MARK: Utility Methods
