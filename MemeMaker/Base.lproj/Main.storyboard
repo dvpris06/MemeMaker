@@ -53,7 +53,11 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="t6i-CG-l9W"/>
                                     <barButtonItem systemItem="camera" id="iOO-pc-cPz"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g4Y-hF-3lP"/>
-                                    <barButtonItem title="Album" id="LwE-M5-4Wn"/>
+                                    <barButtonItem title="Album" id="LwE-M5-4Wn">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="Vwr-ep-8A7"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Yel-bc-nS9"/>
                                 </items>
                             </toolbar>

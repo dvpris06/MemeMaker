@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditorViewController: UIViewController {
+class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //MARK: Outlets
     
@@ -23,10 +23,39 @@ class EditorViewController: UIViewController {
     @IBOutlet weak var albumButton: UIBarButtonItem!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
+    
+    //MARK: imagePicker Methods
+    
+    @IBAction func pickAnImage(_ sender: UIBarButtonItem) {
+    
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+                
+        switch sender {
+        case cameraButton:
+            imagePicker.sourceType = .camera
+        case albumButton:
+            imagePicker.sourceType = .photoLibrary
+        default:
+            print("Unknown type")
+        }
+                
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        memeImageView.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        memeImageView.contentMode = .scaleAspectFill
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 
 
