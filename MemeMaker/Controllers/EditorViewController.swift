@@ -70,7 +70,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
                             originalImage: image,
                             memedImage: memedImage)
             MemeData.allMemes.append(meme)
-            print(MemeData.allMemes.count)
         }
     }
     
