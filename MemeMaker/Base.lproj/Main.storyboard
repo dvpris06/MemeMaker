@@ -92,7 +92,11 @@
                         <viewLayoutGuide key="safeArea" id="VnU-a2-qBj"/>
                     </view>
                     <navigationItem key="navigationItem" id="8fq-iC-ZZp">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="ApP-HU-Z3n"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="ApP-HU-Z3n">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="detailViewSegueToEditorVC" modalPresentationStyle="fullScreen" id="lPS-hB-eD0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="1Cj-q7-UVX" id="BN1-Wp-Zbm"/>
@@ -301,6 +305,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="73r-rJ-okI"/>
                     <connections>
                         <outlet property="albumButton" destination="LwE-M5-4Wn" id="dQ8-4x-8O2"/>
                         <outlet property="bottomTextField" destination="Cfw-IV-pDL" id="3e0-kY-lqD"/>
@@ -323,7 +328,7 @@
         <image name="Table_Icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0nQ-gz-ggz"/>
+        <segue reference="lPS-hB-eD0"/>
         <segue reference="OPB-rb-KtN"/>
     </inferredMetricsTieBreakers>
 </document>

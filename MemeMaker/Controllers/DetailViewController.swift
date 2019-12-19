@@ -19,6 +19,14 @@ class DetailViewController: UIViewController {
         imageView.image = selectedMeme.memedImage
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailViewSegueToEditorVC" {
+            let vc = segue.destination as! EditorViewController
+            vc.defaultTopText = selectedMeme.topMemeText
+            vc.defaultBottomText = selectedMeme.bottomMemeText
+            vc.selectedImage = selectedMeme.originalImage
+        }
+    }
 
     /*
     // MARK: - Navigation

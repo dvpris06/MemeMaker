@@ -24,6 +24,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var albumButton: UIBarButtonItem!
     
     var memedImage: UIImage!
+    var defaultTopText = "TOP"
+    var defaultBottomText = "BOTTOM"
+    var selectedImage: UIImage?
     
     //MARK: UIView lifecycle
     
@@ -34,6 +37,12 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         topTextField.delegate = self
         bottomTextField.delegate = self
+        
+        topTextField.text = defaultTopText
+        bottomTextField.text = defaultBottomText
+        if let image = selectedImage {
+            memeImageView.image = image
+        }
     
         setCommonFontStyle(topTextField)
         setCommonFontStyle(bottomTextField)
@@ -160,11 +169,12 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         textField.defaultTextAttributes = memeTextAttributes
         textField.adjustsFontSizeToFitWidth = true
         
+        /*
         if textField.isEqual(topTextField) {
             textField.text = "TOP"
         } else {
             textField.text = "BOTTOM"
-        }
+        }*/
     }
     
     func generateMemedImage() -> UIImage {
