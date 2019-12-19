@@ -16,6 +16,7 @@
 		7CD959F623AA612C000142EC /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD959F523AA612C000142EC /* Meme.swift */; };
 		7CD959FB23AA78F8000142EC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD959FA23AA78F8000142EC /* TableViewController.swift */; };
 		7CD959FD23ABAF8A000142EC /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD959FC23ABAF8A000142EC /* CollectionViewController.swift */; };
+		7CD959FF23ABB873000142EC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD959FE23ABB873000142EC /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7CD959F523AA612C000142EC /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		7CD959FA23AA78F8000142EC /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		7CD959FC23ABAF8A000142EC /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		7CD959FE23ABB873000142EC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				7CD959E523AA5387000142EC /* EditorViewController.swift */,
 				7CD959FA23AA78F8000142EC /* TableViewController.swift */,
 				7CD959FC23ABAF8A000142EC /* CollectionViewController.swift */,
+				7CD959FE23ABB873000142EC /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				7CD959E223AA5387000142EC /* AppDelegate.swift in Sources */,
 				7CD959FB23AA78F8000142EC /* TableViewController.swift in Sources */,
 				7CD959E423AA5387000142EC /* SceneDelegate.swift in Sources */,
+				7CD959FF23ABB873000142EC /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

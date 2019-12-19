@@ -65,6 +65,48 @@
             </objects>
             <point key="canvasLocation" x="-275.36231884057975" y="442.63392857142856"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="o6f-uq-iiL">
+            <objects>
+                <viewController id="tNF-W8-cw5" customClass="DetailViewController" customModule="MemeMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tTP-X0-scb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Cj-q7-UVX">
+                                <rect key="frame" x="47" y="328" width="320" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="9z8-d0-Vws"/>
+                                    <constraint firstAttribute="width" constant="320" id="sXb-rM-VqD"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLX-ik-mVP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Meme Detail" id="c6p-Ks-dyY">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="3nc-cb-aGI"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JLX-ik-mVP" firstAttribute="centerX" secondItem="VnU-a2-qBj" secondAttribute="centerX" id="4bD-XR-n0n"/>
+                            <constraint firstItem="JLX-ik-mVP" firstAttribute="top" secondItem="VnU-a2-qBj" secondAttribute="top" id="El1-mj-H76"/>
+                            <constraint firstItem="1Cj-q7-UVX" firstAttribute="centerY" secondItem="VnU-a2-qBj" secondAttribute="centerY" id="Oxy-yV-j33"/>
+                            <constraint firstItem="1Cj-q7-UVX" firstAttribute="centerX" secondItem="VnU-a2-qBj" secondAttribute="centerX" id="RLv-bV-oSt"/>
+                            <constraint firstItem="JLX-ik-mVP" firstAttribute="width" secondItem="VnU-a2-qBj" secondAttribute="width" id="aMF-AC-kWb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VnU-a2-qBj"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1Cj-q7-UVX" id="BN1-Wp-Zbm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHB-VS-rI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="443"/>
+        </scene>
         <!--Table-->
         <scene sceneID="7aY-GX-VSk">
             <objects>
@@ -161,7 +203,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBP-ky-dRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-275.36231884057975" y="-234.375"/>
+            <point key="canvasLocation" x="-275" y="-234"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uyt-tu-LvX">
@@ -275,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="110"/>
+            <point key="canvasLocation" x="826" y="-234"/>
         </scene>
     </scenes>
     <resources>
