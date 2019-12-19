@@ -18,12 +18,6 @@ class TableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
-
-    @IBAction func reload(_ sender: UIBarButtonItem) {
-        tableView.reloadData()
-    }
-    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

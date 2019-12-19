@@ -54,14 +54,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Saved Memes" id="ng3-M6-SsK">
-                        <barButtonItem key="leftBarButtonItem" title="Reload" id="wQD-Zk-6QR">
-                            <connections>
-                                <action selector="reload:" destination="EwF-l9-YNn" id="kr5-0S-FaD"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="m2V-jr-a7F">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="URo-QL-68a"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="URo-QL-68a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -137,7 +132,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Reload" id="eR9-dg-KH0"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iJE-bg-qCI">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="0nQ-gz-ggz"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="0nQ-gz-ggz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -169,14 +164,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="EditorViewController" customModule="MemeMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lji-Jr-sFd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="MemeMaker" id="CWd-NP-KjF">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="BaC-ka-Qpa" userLabel="Cancel"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="BaC-ka-Qpa" userLabel="Cancel">
+                                            <connections>
+                                                <action selector="cancel:" destination="BYZ-38-t0r" id="tAp-qG-VoC"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="Aee-vr-G2Y">
                                             <connections>
                                                 <action selector="save:" destination="BYZ-38-t0r" id="tbw-C5-Q7i"/>
@@ -186,14 +185,14 @@
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wDY-s6-CPh" userLabel="Meme Image View">
-                                <rect key="frame" x="47" y="279" width="320" height="250"/>
+                                <rect key="frame" x="47" y="328" width="320" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="2OL-Ad-ryj"/>
                                     <constraint firstAttribute="height" constant="250" id="tEp-cv-F1Y"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP TEXT" textAlignment="center" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="fNe-iq-dQl" userLabel="Top Textfield">
-                                <rect key="frame" x="128" y="289" width="158" height="34"/>
+                                <rect key="frame" x="128" y="338" width="158" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="ZdY-Lr-nRb"/>
                                 </constraints>
@@ -201,7 +200,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM TEXT" textAlignment="center" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="Cfw-IV-pDL" userLabel="Bottom Textfield">
-                                <rect key="frame" x="90.5" y="485" width="233" height="34"/>
+                                <rect key="frame" x="90.5" y="534" width="233" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="REe-ha-dUQ"/>
                                 </constraints>

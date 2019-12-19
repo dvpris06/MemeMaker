@@ -73,6 +73,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     //MARK: imagePicker Methods
 
