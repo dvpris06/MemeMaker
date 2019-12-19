@@ -46,6 +46,9 @@
                                         <constraint firstItem="sWD-u2-DiR" firstAttribute="centerY" secondItem="u7l-Is-Yxl" secondAttribute="centerY" id="uxA-hy-6xA"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tNF-W8-cw5" kind="show" identifier="tableViewSegueToDetail" id="mEH-sK-TsY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -73,32 +76,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Cj-q7-UVX">
-                                <rect key="frame" x="47" y="328" width="320" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Cj-q7-UVX">
+                                <rect key="frame" x="47" y="325.5" width="320" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="9z8-d0-Vws"/>
                                     <constraint firstAttribute="width" constant="320" id="sXb-rM-VqD"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLX-ik-mVP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Meme Detail" id="c6p-Ks-dyY">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="3nc-cb-aGI"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="JLX-ik-mVP" firstAttribute="centerX" secondItem="VnU-a2-qBj" secondAttribute="centerX" id="4bD-XR-n0n"/>
-                            <constraint firstItem="JLX-ik-mVP" firstAttribute="top" secondItem="VnU-a2-qBj" secondAttribute="top" id="El1-mj-H76"/>
                             <constraint firstItem="1Cj-q7-UVX" firstAttribute="centerY" secondItem="VnU-a2-qBj" secondAttribute="centerY" id="Oxy-yV-j33"/>
                             <constraint firstItem="1Cj-q7-UVX" firstAttribute="centerX" secondItem="VnU-a2-qBj" secondAttribute="centerX" id="RLv-bV-oSt"/>
-                            <constraint firstItem="JLX-ik-mVP" firstAttribute="width" secondItem="VnU-a2-qBj" secondAttribute="width" id="aMF-AC-kWb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VnU-a2-qBj"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8fq-iC-ZZp">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="ApP-HU-Z3n"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="1Cj-q7-UVX" id="BN1-Wp-Zbm"/>
                     </connections>
@@ -186,6 +181,9 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="195" height="158"/>
+                                <connections>
+                                    <segue destination="tNF-W8-cw5" kind="show" identifier="collectionViewSegueToDetail" id="OPB-rb-KtN"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -326,5 +324,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0nQ-gz-ggz"/>
+        <segue reference="OPB-rb-KtN"/>
     </inferredMetricsTieBreakers>
 </document>
