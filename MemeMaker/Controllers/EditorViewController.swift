@@ -40,6 +40,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         topTextField.text = defaultTopText
         bottomTextField.text = defaultBottomText
+        
         if let image = selectedImage {
             memeImageView.image = image
         }
@@ -104,13 +105,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // watch for the keyboard to show
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(EditorViewController.keyboardWillShow(_:)),
+                                               selector: #selector(keyboardWillShow(_:)),
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         
         // watch for the keyboard to hide
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(EditorViewController.keyboardWillHide(_:)),
+                                               selector: #selector(keyboardWillHide(_:)),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
@@ -168,13 +169,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         textField.defaultTextAttributes = memeTextAttributes
         textField.adjustsFontSizeToFitWidth = true
-        
-        /*
-        if textField.isEqual(topTextField) {
-            textField.text = "TOP"
-        } else {
-            textField.text = "BOTTOM"
-        }*/
     }
     
     func generateMemedImage() -> UIImage {

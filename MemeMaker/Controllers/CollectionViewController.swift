@@ -29,19 +29,22 @@ class CollectionViewController: UICollectionViewController {
         collectionView.reloadData()
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "collectionViewSegueToDetail" {
+            let sendingCell = sender as! UICollectionViewCell
+            let sendingCellIndexPath = collectionView!.indexPath(for: sendingCell)!
+            let selectedMeme = sendingCellIndexPath.row
+            
+            let controller = segue.destination as! DetailViewController
+            controller.selectedMeme = MemeData.allMemes[selectedMeme]
+        }
     }
-    */
-
+    
     // MARK: UICollectionViewDataSource
 
-   
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MemeData.allMemes.count
     }
@@ -60,24 +63,13 @@ class CollectionViewController: UICollectionViewController {
     
         return cell
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "collectionViewSegueToDetail" {
-            let sendingCell = sender as! UICollectionViewCell
-            let sendingCellIndexPath = collectionView!.indexPath(for: sendingCell)!
-            let selectedMeme = sendingCellIndexPath.row
-            
-            let controller = segue.destination as! DetailViewController
-            controller.selectedMeme = MemeData.allMemes[selectedMeme]
-        }
-    }
-
 }
 
+    //MARK: UICollectionViewDelegateFlowLayout methods
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.bounds.width
-        return CGSize(width: collectionWidth/2 - 7, height: collectionWidth/2 - 7)
+        return CGSize(width: collectionWidth/2 - 7, height: 140)
     }
     
     

@@ -9,15 +9,18 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    //MARK: Outlets and Properties
     @IBOutlet weak var imageView: UIImageView!
-    
     var selectedMeme: Meme!
     
+    //MARK: UIView lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         imageView.image = selectedMeme.memedImage
     }
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailViewSegueToEditorVC" {
@@ -27,15 +30,4 @@ class DetailViewController: UIViewController {
             vc.selectedImage = selectedMeme.originalImage
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
